@@ -1,0 +1,23 @@
+{
+  "name": "contracts",
+  "module": "index.ts",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "ts-node": "^10.9.2",
+    "@types/chai": "4",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.10.1",
+    "chai": "4",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@openzeppelin/contracts": "^5.1.0",
+    "hardhat": "^2.22.15",
+    "dotenv": "^16.4.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@uniswap/lib": "^4.0.1-alpha",
+    "@uniswap/v2-core": "^1.0.1"
+  }
+}
