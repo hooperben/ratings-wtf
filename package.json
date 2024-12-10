@@ -1,0 +1,10 @@
+{
+  "name": "ratings-wtf",
+  "private": true,
+  "workspaces": [
+    "client",
+    "contracts"
+  ],
+  "devDependencies": {},
+  "dependencies": {}
+}
