@@ -1,5 +1,7 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
+import "hardhat-deploy";
+import "@typechain/hardhat";
 
 import "dotenv/config";
 
@@ -20,12 +22,6 @@ const config: HardhatUserConfig = {
         },
       },
     ],
-  },
-  networks: {
-    baseSepolia: {
-      url: `https://base-sepolia.g.alchemy.com/v2/${process.env.ALCHEMY_API_KEY}`,
-      accounts: [process.env.PRIVATE_KEY!],
-    },
   },
   etherscan: {
     apiKey: {
