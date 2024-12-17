@@ -2,6 +2,7 @@ import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import "hardhat-deploy";
 import "@typechain/hardhat";
+import "hardhat-deploy-ethers";
 
 import "dotenv/config";
 
