@@ -25,8 +25,7 @@ contract Ratings is IRatings {
 
         string memory normalizedUrl = URINormalizer.normalizeURI(url);
 
-        // TODO: Add in normalising
-        return address(uint160(uint256(keccak256(abi.encodePacked(url)))));
+        return address(uint160(uint256(keccak256(abi.encode(normalizedUrl)))));
     }
 
     // TODO: Implement

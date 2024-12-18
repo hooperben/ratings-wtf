@@ -1,6 +1,10 @@
 import { deployments, ethers } from "hardhat";
 import { expect } from "chai";
 import { Ratings } from "../../typechain-types";
+import { normalizeURI } from "../../utils/url";
+
+const hashAndNormalizeUrl = (url: string) =>
+  ethers.keccak256(ethers.toUtf8Bytes(normalizeURI(url))).slice(0, 42);
 
 describe("Ratings Contract", function () {
   let ratings: Ratings;
@@ -19,5 +23,15 @@ describe("Ratings Contract", function () {
     console.log("Normalized URL hash-derived address:", hashAddress);
 
     expect(hashAddress).to.be.properAddress;
+  });
+
+  it("Should return the same hash-derived address for the same normalized URL", async function () {
+    const url = "HTTP://Example.com/SomePath";
+
+    const expectedAddress = hashAndNormalizeUrl(url);
+
+    const contractResult = await ratings.hashNormaliseUrl(url);
+
+    expect(contractResult).to.equal(expectedAddress);
   });
 });
