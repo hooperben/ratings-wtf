@@ -3,6 +3,7 @@
 import DarkModeToggle from "@/components/dark-mode-toggle";
 import PurchaseWidget from "@/components/purchase-widget";
 import HyperText from "@/components/ui/hyper-text";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Home() {
   return (
@@ -16,7 +17,19 @@ export default function Home() {
           text="ratings.wtf"
         />
       </div>
-      <PurchaseWidget />
+
+      <div className="w-full text-center justify-center">
+        <Tabs defaultValue="trending" className="w-full">
+          <TabsList>
+            <TabsTrigger value="trending">Trending Ratings</TabsTrigger>
+            <TabsTrigger value="createRating">Create Rating</TabsTrigger>
+          </TabsList>
+          <TabsContent value="trending">Trending coming soon!</TabsContent>
+          <TabsContent value="createRating">
+            <PurchaseWidget />
+          </TabsContent>
+        </Tabs>
+      </div>
     </div>
   );
 }
