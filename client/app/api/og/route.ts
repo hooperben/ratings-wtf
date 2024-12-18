@@ -12,13 +12,18 @@ export async function GET(request: Request) {
   }
 
   try {
-    const response = await fetch(
-      `https://opengraph.io/api/1.1/site/${encodeURIComponent(url)}?app_id=${
-        process.env.OG_API_KEY
-      }`,
-    );
+    const response = await fetch("http://localhost:3001/screenshot", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ url }),
+    });
 
     const data = await response.json();
+
+    console.log(data);
+
     return NextResponse.json(data);
   } catch (err) {
     console.error(err);
