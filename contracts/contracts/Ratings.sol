@@ -2,6 +2,7 @@
 pragma solidity 0.8.28;
 
 import "./VoteToken.sol";
+import "./URINormalizer.sol";
 
 import "../interfaces/IRatings.sol";
 import "../interfaces/IVoteToken.sol";
@@ -21,6 +22,8 @@ contract Ratings is IRatings {
         if (bytes(url).length == 0) {
             return address(0);
         }
+
+        string memory normalizedUrl = URINormalizer.normalizeURI(url);
 
         // TODO: Add in normalising
         return address(uint160(uint256(keccak256(abi.encodePacked(url)))));
